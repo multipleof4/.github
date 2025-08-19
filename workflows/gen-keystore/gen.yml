@@ -1,0 +1,47 @@
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+    secrets:
+      KEYSTORE_PASS:
+        required: true
+      KEY_PASS:
+        required: true
+
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - run: |
+          keytool -genkeypair -v \
+            -keystore "${{ inputs.name }}-keystore.jks" \
+            -storepass "${{ secrets.KEYSTORE_PASS }}" \
+            -keypass "${{ secrets.KEY_PASS }}" \
+            -alias "${{ inputs.name }}" \
+            -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=${{ inputs.name }}"
+
+      - run: |
+          keytool -list -v \
+            -keystore "${{ inputs.name }}-keystore.jks" \
+            -storepass "${{ secrets.KEYSTORE_PASS }}" \
+            -alias "${{ inputs.name }}" \
+            | sed -n "s/.*SHA256: //p" | head -n1 | tee "${{ inputs.name }}-keystore.sha256"
+
+      - run: base64 "${{ inputs.name }}-keystore.jks" > "${{ inputs.name }}-keystore.jks.base64"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.name }}-keystore
+          path: |
+            ${{ inputs.name }}-keystore.jks
+            ${{ inputs.name }}-keystore.jks.base64
+            ${{ inputs.name }}-keystore.sha256
