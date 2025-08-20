@@ -1,1 +1,3 @@
-email: ```planetrenox@pm.me```
+```email
+planetrenox@pm.me
+```
