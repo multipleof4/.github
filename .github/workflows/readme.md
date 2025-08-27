@@ -1,4 +1,14 @@
 ```yml
+on: 
+  push:
+  workflow_dispatch:
+jobs:
+  call-npm-build:
+    uses: multipleof4/.github/.github/workflows/npm-build.yml@master
+    permissions:
+      contents: write
+```
+```yml
 on:
   workflow_dispatch:
     inputs:
