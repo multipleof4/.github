@@ -17,7 +17,7 @@ on:
         required: true
 jobs:
   gen:
-    uses: multipleof4/.actions/.github/workflows/gen-keystore.yml@master
+    uses: multipleof4/.github/.github/workflows/gen-keystore.yml@master
     with:
       name: ${{ github.event.inputs.name }}
     secrets:
@@ -33,7 +33,7 @@ on:
         default: sune-1500-unsigned.apk
 jobs:
   call:
-    uses: multipleof4/.actions/.github/workflows/sign-apk.yml@master
+    uses: multipleof4/.github/.github/workflows/sign-apk.yml@master
     with:
       unsigned_apk: ${{ github.event.inputs.unsigned_apk }}
     secrets:
@@ -53,7 +53,7 @@ permissions:
   contents: write
 jobs:
   mirror:
-    uses: multipleof4/.actions/.github/workflows/repo-mirror.yml@master
+    uses: multipleof4/.github/.github/workflows/repo-mirror.yml@master
     with:
       repo: ${{ inputs.repo }}
 ```
