@@ -42,6 +42,7 @@ jobs:
       KEY_PASS: ${{ secrets.KEY_PASS }}
       JKS_BASE64: ${{ secrets.JKS_BASE64 }}
 ```
+MIRROR
 ```yml
 on:
   workflow_dispatch:
@@ -49,6 +50,7 @@ on:
       repo:
         required: true
         type: string
+        default: multipleof4/
 permissions:
   contents: write
 jobs:
