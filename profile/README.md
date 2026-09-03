@@ -9,3 +9,5 @@ Most of my repos are in organizations. I will list the popular ones here:
 [speech.capital](https://github.com/spchcap/speech.capital) - It was a small reddit/hackernews alternative  
 [HiLang](https://hi-language.github.io/) - JavaScript inspired language  
 [vibegif.lol](https://github.com/vibegif/vibegif.lol)(~1 star) - AI Generated Gifs (BYOK OpenRouter)
+
+I have many other smaller projects in my orgs but the ones mentioned above are the big ones.
