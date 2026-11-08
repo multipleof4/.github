@@ -3,11 +3,8 @@ Most of my repos are organized in orgs.
 
 I run the news publication [apophenia.news](https://apophenia.news/) and the YouTube channel [Apophenia Loop](https://youtube.com/@ApopheniaLoop).
 
-## PGP
-Fingerprint: `4832 173C BE19 C949 9C2D 1B48 2F0E E02D 78B1 03A4`
-
 <details>
-<summary>Public key</summary>
+<summary>Public PGP key</summary>
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
